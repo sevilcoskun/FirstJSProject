@@ -5,7 +5,7 @@ function check(){
     var answer3 = document.quiz.answer3.value;
     var correct = 0;
 
-    if(answer1 == "Ankara" || "ankara")
+    if(answer1 == ("Ankara" || "ankara"))
         correct++;
     if(answer2 == "Kebap")
         correct++;
@@ -13,6 +13,7 @@ function check(){
         correct++;
 
     var messages = ["Great Job!", "Meh it is okay", "You need to do it better!"];
+    var img = ["img/success.gif", "img/meh.gif", "img/lose.gif"]; 
 
     var range;
     if(correct < 1){
@@ -28,5 +29,5 @@ function check(){
     document.getElementById("after_submit").style.visibility = "visible";
     document.getElementById("message").innerHTML = messages[range];
     document.getElementById("number_correct").innerHTML = "You got " + correct + " answer correctly.";
-
+    document.getElementById("img").src = img[range];
 }
