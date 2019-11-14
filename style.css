@@ -1,6 +1,16 @@
 body{
 	font-family: 'Lato', sans-serif;
 }
+
+#quiz{
+	margin-left: 10px;
+	background: rgba(112, 122, 139, 0.486);
+	padding: 10px 20px 10px 20px;
+	width: 400px;
+	float: left;
+}
+
 #after_submit{
 	visibility: hidden;
+	width: 400px;
 }

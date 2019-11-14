@@ -5,7 +5,7 @@ function check(){
     var answer3 = document.quiz.answer3.value;
     var correct = 0;
 
-    if(answer1 == ("Ankara" || "ankara"))
+    if((answer1 == "Ankara") || (answer1 == "ankara"))
         correct++;
     if(answer2 == "Kebap")
         correct++;
@@ -27,7 +27,9 @@ function check(){
     }
 
     document.getElementById("after_submit").style.visibility = "visible";
+    
     document.getElementById("message").innerHTML = messages[range];
     document.getElementById("number_correct").innerHTML = "You got " + correct + " answer correctly.";
+    document.getElementById("img").style.width = "400px";
     document.getElementById("img").src = img[range];
 }
