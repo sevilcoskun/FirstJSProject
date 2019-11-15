@@ -1,30 +1,3 @@
-//Called function while creating the form
-/*function createQuiz(){
-    var id = 0;
-
-    game.questions.forEach(element => {
-        var newp = document.createElement("p");
-        newp.id = "question" + (++id);
-        newp.innerHTML = element.text;
-        document.getElementById("quizPage").appendChild(newp);
-
-        element.options.forEach(element1 => {
-            var container = document.createElement("div");
-
-            var newi = document.createElement("input");
-            newi.id = "option" + (id);
-            newi.name = "option" + (id);
-            newi.type = "radio";
-            newi.value = element1.text;
-            
-            container.appendChild(newi);
-            container.append(element1.text);
-            
-            document.getElementById("quizPage").appendChild(container);
-        });
-    });
-}*/
-
 //Global Variable
 var container;
 var content;
@@ -55,9 +28,9 @@ function printQuestion() {
         document.getElementById("p_question").innerHTML = game.questions[cnt_q].text;
 
         //print the options
-        document.getElementById("inp_option1").append(game.questions[cnt_q].options[0].text);
-        document.getElementById("inp_option2").append(game.questions[cnt_q].options[1].text);
-        document.getElementById("inp_option3").append(game.questions[cnt_q].options[2].text);
+        document.getElementById("div_option1").append(game.questions[cnt_q].options[0].text);
+        document.getElementById("div_option2").append(game.questions[cnt_q].options[1].text);
+        document.getElementById("div_option3").append(game.questions[cnt_q].options[2].text);
 
         //answer btn functionality
         var quiz = document.getElementById("quiz");
@@ -73,6 +46,10 @@ function printQuestion() {
 function answerQuestion(event) {
     event.preventDefault();
     var current_status = false;
+
+    document.getElementById("inp_option1").disabled = "true";
+    document.getElementById("inp_option2").disabled = "true";
+    document.getElementById("inp_option3").disabled = "true";
 
     var doc_options = document.getElementsByName("option");
     for (var i = 0; i < doc_options.length; i++) {
