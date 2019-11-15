@@ -106,7 +106,7 @@ var game = JSON.parse(`{
             "text": "7-What color are often the domes of churches in Russia?",
             "options": [
                 {
-                    "text": "silver",
+                    "text": "Silver",
                     "correct": false
                 },
                 {

@@ -2,6 +2,12 @@ body{
 	font-family: 'Lato', sans-serif;
 }
 
+button{
+	padding-block: 5px;
+	margin-top: 10px;
+	float: right;
+}
+
 #quiz{
 	margin-left: 10px;
 	background: rgba(112, 122, 139, 0.486);
