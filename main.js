@@ -30,12 +30,10 @@ function printQuestion() {
         document.getElementById("p_question").innerHTML = game.questions[cnt_q].text;
 
         //print the options
-        document.getElementById("div_option1").append(game.questions[cnt_q].options[0].text);
-        document.getElementById("inp_option1").setAttribute("value", game.questions[cnt_q].options[0].text);
-        document.getElementById("div_option2").append(game.questions[cnt_q].options[1].text);
-        document.getElementById("inp_option2").setAttribute("value", game.questions[cnt_q].options[1].text);
-        document.getElementById("div_option3").append(game.questions[cnt_q].options[2].text);
-        document.getElementById("inp_option3").setAttribute("value", game.questions[cnt_q].options[2].text);
+        for(var i = 0; i < 3; i++){
+            document.getElementById("div_option" + (i+1)).append(game.questions[cnt_q].options[i].text);
+            document.getElementById("inp_option" + (i+1)).setAttribute("value", game.questions[cnt_q].options[i].text);
+        }     
 
         //answer btn functionality
         var quiz = document.getElementById("quiz");
@@ -77,9 +75,9 @@ function answerQuestion(event) {
         event.preventDefault();
     }
 
-    document.getElementById("inp_option1").disabled = "true";
-    document.getElementById("inp_option2").disabled = "true";
-    document.getElementById("inp_option3").disabled = "true";
+    for(var i = 1; i < 4; i++){
+        document.getElementById("inp_option"+i).disabled = "true";
+    }
 
     doc_options = document.getElementsByName("option");
     const correctAnswer = game.questions[cnt_q].options.find(e => e.correct).text;
