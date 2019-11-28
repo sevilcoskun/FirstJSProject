@@ -25,9 +25,8 @@
 	</div>
 
 	<div id="game-div">
-		<h1 id="player">Hello </h1>
-		<form id="form-quiz" name="form-quiz">
-			<div id="timer" style="float: right;"></div> 
+		<div id="timer" style="float: right;"></div><br>
+		<form id="form-quiz" name="form-quiz"> 
 			<div id="quizPage">
 				<p id="p_question"></p>
 				<div id="div_option1">
@@ -42,11 +41,12 @@
 					<input id="inp_option3" name="option" type="radio">
 				</div>
 				<br>
+				
 				<input type='button' id="btn_answer" value="Answer" onclick="answerQuestion();" disabled>
 	
 				<div id="div_status">
 					<p id="p_status"></p>
-					<input type='button' id="btn_next" value="Next" onclick="printQuestion();">
+					<input type='button' id="btn_next" value="Next Question" onclick="printQuestion();">
 				</div>
 			</div>
 		</form>

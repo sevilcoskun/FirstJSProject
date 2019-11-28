@@ -23,7 +23,7 @@ function printQuestion() {
 
         document.getElementById("div_status").style.visibility = "hidden";
 
-        document.getElementById("btn_answer").style.visibility = "visible";
+        document.getElementById("btn_answer").style.display = "block";
 
         //print the question
         document.getElementById("p_question").innerHTML = game.questions[cnt_q].text;
@@ -103,7 +103,7 @@ function answerQuestion(event) {
 
 function printMessage(current_status, correctAnswer, answered) {
     console.log(current_status, correctAnswer, answered);
-    document.getElementById("btn_answer").style.visibility = 'hidden';
+    document.getElementById("btn_answer").style.display = 'none';
 
     if (cnt_next == 0) {
         document.getElementById("btn_next").innerHTML = "Finish the Quiz!";

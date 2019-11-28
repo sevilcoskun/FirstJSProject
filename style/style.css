@@ -1,37 +1,32 @@
 body{
 	font-family: 'Lato', sans-serif;
+	
 }
 
 #login-div{
-	width: 250px;
-}
-
-#play-type{
+	margin-left: 10px;
+	padding: 10px 20px 10px 20px;
+	background:rgba(112, 122, 139, 0.486);
+	width: 400px;
+	height: 200px;
 	float: left;
-	width: 300px;
 }
-
 
 input[type=button]{
-	padding-block: 5px;
-	margin-top: 10px;
+	margin: 10px;
 	float: right;
 	width: auto;
 }
 
 #play-type{
-	visibility: hidden;
+	display: none;
 }
 
 #game-div{
 	visibility: hidden;
-	width: 400px;
-}
-
-#form-quiz{
 	margin-left: 10px;
-	background: rgba(112, 122, 139, 0.486);
 	padding: 10px 20px 10px 20px;
+	background: rgba(112, 122, 139, 0.486);
 	width: 400px;
 	float: left;
 }

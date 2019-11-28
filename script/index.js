@@ -8,16 +8,16 @@ function showInput(){
 
     document.getElementById('form-nickname').style.display = "none";
 
+    document.getElementById('play-type').style.display = "block";
     document.getElementById('username').innerHTML =
         "Hello " + user_name +
         ", Please select game type";
-    document.getElementById('play-type').style.visibility = "visible";
 }
 
 function singlePlayer(){
     document.getElementById('login-div').style.display = "none";
     document.getElementById('game-div').style.visibility = "visible";
-    document.getElementById("player").append(user_name);
+    //document.getElementById("player").append(user_name + "'s Quiz Game");
     init();
 }
 
