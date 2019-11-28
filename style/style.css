@@ -8,6 +8,11 @@ button{
 	float: right;
 }
 
+#play-type{
+	visibility: hidden;
+	width: 400px;
+}
+
 #quiz{
 	margin-left: 10px;
 	background: rgba(112, 122, 139, 0.486);
