@@ -1,9 +1,13 @@
-var user_name;
-function showInput(){
-    document.getElementById('form-nickname').style.display = "none";
-    document.getElementById('submit-nickname').style.display = "none";
 
+var container;
+var content;
+var user_name;
+
+function showInput(){
     user_name = document.getElementById('nickname').value;
+
+    document.getElementById('form-nickname').style.display = "none";
+
     document.getElementById('username').innerHTML =
         "Hello " + user_name +
         ", Please select game type";
@@ -11,10 +15,15 @@ function showInput(){
 }
 
 function singlePlayer(){
-    window.open("html/gamePage.html");
+    document.getElementById('login-div').style.display = "none";
+    document.getElementById('game-div').style.visibility = "visible";
+    document.getElementById("player").append(user_name);
+    init();
 }
 
 function multiPlayer(){
     //add the user in the list
-    window.open("html/usersPage.html");
+    document.getElementById('login-div').style.display = "none";
 }
+
+// init();

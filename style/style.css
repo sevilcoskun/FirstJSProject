@@ -2,18 +2,33 @@ body{
 	font-family: 'Lato', sans-serif;
 }
 
-button{
+#login-div{
+	width: 250px;
+}
+
+#play-type{
+	float: left;
+	width: 300px;
+}
+
+
+input[type=button]{
 	padding-block: 5px;
 	margin-top: 10px;
 	float: right;
+	width: auto;
 }
 
 #play-type{
 	visibility: hidden;
+}
+
+#game-div{
+	visibility: hidden;
 	width: 400px;
 }
 
-#quiz{
+#form-quiz{
 	margin-left: 10px;
 	background: rgba(112, 122, 139, 0.486);
 	padding: 10px 20px 10px 20px;
@@ -21,7 +36,7 @@ button{
 	float: left;
 }
 
-#after_submit{
+#finish-game{
 	visibility: hidden;
 	width: 400px;
 }

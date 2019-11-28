@@ -8,10 +8,10 @@ var cnt_q = 0;
 var score = 0;
 
 function init() {
-    container = document.getElementById("quiz");
+    container = document.getElementById("form-quiz");
     content = container.innerHTML;
 
-    document.querySelector('#quiz').addEventListener('submit', answerQuestion);
+    document.querySelector('#form-quiz').addEventListener('submit', answerQuestion);
     printQuestion();
 }
 
@@ -21,8 +21,7 @@ function printQuestion() {
         container.innerHTML = content;
         countdown(10);
 
-        document.getElementById("p_status").style.visibility = "hidden";
-        document.getElementById("btn_next").style.visibility = "hidden";
+        document.getElementById("div_status").style.visibility = "hidden";
 
         document.getElementById("btn_answer").style.visibility = "visible";
 
@@ -36,7 +35,7 @@ function printQuestion() {
         }     
 
         //answer btn functionality
-        var quiz = document.getElementById("quiz");
+        var quiz = document.getElementById("form-quiz");
         quiz.addEventListener('change', function (e) {
             document.getElementById("btn_answer").disabled = false;
         }, false);
@@ -134,7 +133,7 @@ function printScore() {
     var range;
 
     var messages = ["Woooaw!!! Great Job!", "It is good!", "Meh it is okay, need more!", "You need to do it better!"];
-    var img = ["../img/success.gif", "../img/good.gif", "../img/meh.gif", "../img/lose.gif"];
+    var img = ["img/success.gif", "img/good.gif", "img/meh.gif", "img/lose.gif"];
 
     if (score < 3) {
         range = 3;
@@ -149,8 +148,8 @@ function printScore() {
         range = 0;
     }
 
-    document.getElementById("quiz").style.display = "none";
-    document.getElementById("after_submit").style.visibility = "visible";
+    document.getElementById("form-quiz").style.display = "none";
+    document.getElementById("finish-game").style.visibility = "visible";
 
     document.getElementById("message").innerHTML = messages[range];
     document.getElementById("number_correct").innerHTML = "You got " + score + " answer correctly.";
@@ -158,4 +157,4 @@ function printScore() {
     document.getElementById("img").src = img[range];
 }
 
-init();
+//init();

@@ -4,21 +4,59 @@
 	<link href="style/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<script src="script/index.js" defer></script>
+	<script src="script/QuestionSet.js"></script>
+	<script src="script/gamePage.js" defer></script>
 </head>
 
 <body>
-	<h1> Welcome to Quiz Game </h1>
-	<form id = "form-nickname" method="POST" action="/users/add">
-		<label> Enter a nickname for playing, please! </label><br>
-		<input id = 'nickname' type = 'text' name ='nickname'>
-	</form>
-	<input id = "submit-nickname" type = "submit" value ="Submit" onclick="showInput();">
-
-	<div id = 'play-type'>
-		<p id='username'></p>
-		<input type='button' id='single' value='Single-player Game' onclick="singlePlayer();">
-		<input type='button' id='mulitple' value='Multi-player Game' onclick="multiPlayer();">
+	<div id="login-div">
+		<h1> Welcome to Quiz Game </h1>
+		<form id = "form-nickname" method="POST">
+			<label> Enter a nickname for playing, please! </label><br>
+			<input id = 'nickname' type = 'text' name ='nickname'><br>
+			<input id = "submit-nickname" type ="button" value ="Submit" onclick="showInput();">
+		</form>
+		
+		<div id = 'play-type'>
+			<p id='username'></p>
+			<input type='button' id='single' value='Single-player Game' onclick="singlePlayer();">
+			<input type='button' id='mulitple' value='Multi-player Game' onclick="multiPlayer();">
+		</div>
 	</div>
-	</body>
 
+	<div id="game-div">
+		<h1 id="player">Hello </h1>
+		<form id="form-quiz" name="form-quiz">
+			<div id="timer" style="float: right;"></div> 
+			<div id="quizPage">
+				<p id="p_question"></p>
+				<div id="div_option1">
+					<input id="inp_option1" name="option" type="radio">
+				</div>
+	
+				<div id="div_option2">
+					<input id="inp_option2" name="option" type="radio">
+				</div>
+	
+				<div id="div_option3">
+					<input id="inp_option3" name="option" type="radio">
+				</div>
+				<br>
+				<input type='button' id="btn_answer" value="Answer" onclick="answerQuestion();" disabled>
+	
+				<div id="div_status">
+					<p id="p_status"></p>
+					<input type='button' id="btn_next" value="Next" onclick="printQuestion();">
+				</div>
+			</div>
+		</form>
+	
+		<div id="finish-game">
+			<p id="message"></p>
+			<p id="number_correct">You finished good job!</p>
+			<img id="img"></img>
+		</div>
+	</div>
+	
+	</body>
 </html>
