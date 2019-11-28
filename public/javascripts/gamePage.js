@@ -133,7 +133,7 @@ function printScore() {
     var range;
 
     var messages = ["Woooaw!!! Great Job!", "It is good!", "Meh it is okay, need more!", "You need to do it better!"];
-    var img = ["img/success.gif", "img/good.gif", "img/meh.gif", "img/lose.gif"];
+    var img = ["public/images/success.gif", "public/images/good.gif", "public/images/meh.gif", "public/images/lose.gif"];
 
     if (score < 3) {
         range = 3;
@@ -149,6 +149,7 @@ function printScore() {
     }
 
     document.getElementById("form-quiz").style.display = "none";
+    document.getElementById("timer").style.display = "none";
     document.getElementById("finish-game").style.visibility = "visible";
 
     document.getElementById("message").innerHTML = messages[range];
