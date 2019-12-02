@@ -2,19 +2,19 @@
 <head>
 	<title>Quiz Game</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-	<link href="public/stylesheets/style.css" rel="stylesheet">
-	<script src="public/javascripts/loginPage.js" defer></script>
-	<script src="public/javascripts/QuestionSet.js"></script>
-	<script src="public/javascripts/gamePage.js" defer></script>
+	<link href="stylesheets/style.css" rel="stylesheet">
+	<script src="javascripts/loginPage.js" defer></script>
+	<script src="javascripts/QuestionSet.js"></script>
+	<script src="javascripts/gamePage.js" defer></script>
 </head>
 
 <body>
 	<div id="login-div">
 		<h1> Welcome to Quiz Game </h1>
-		<form id = "form-nickname" method="POST">
+		<form id = "form-nickname">
 			<label> Enter a nickname for playing, please! </label><br>
-			<input id = 'nickname' type = 'text' name ='nickname'><br>
-			<input id = "submit-nickname" type ="button" value ="Submit" onclick="showInput();">
+			<input id = 'nickname' type = 'text' name ='nickname' required><br>
+			<input id = "submit-nickname" type ="submit" value ="Submit">
 		</form>
 		
 		<div id = 'play-type'>
@@ -22,6 +22,11 @@
 			<input type='button' id='single' value='Single-player Game' onclick="singlePlayer();">
 			<input type='button' id='mulitple' value='Multi-player Game' onclick="multiPlayer();">
 		</div>
+	</div>
+
+	<div id = 'players-div'>
+		<p id=player></p>
+		<ul id = players_list></ul>
 	</div>
 
 	<div id="game-div">

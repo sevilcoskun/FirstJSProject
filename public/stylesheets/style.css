@@ -22,6 +22,10 @@ input[type=button]{
 	display: none;
 }
 
+#users_list{
+	display: none;
+}
+
 #game-div{
 	visibility: hidden;
 	margin-left: 10px;

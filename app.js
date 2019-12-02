@@ -1,41 +1,68 @@
-var createError = require('http-errors');
+/*var http = require('http');
+var fs = require('fs');
+
+var server = http.createServer(function(req, res){
+	fs.readFile('index.html', function(err, data){
+		res.write(data);//send data(index.html data) to client
+	});
+});
+*/
+
+
 var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
+var port = 8080;
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.use(express.static('public'));//mapping the public dir to client
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.listen(port, function (err, res) {
+	if (err) {
+		console.log("sever error");
+	}
+	else {
+		console.log("server srtarted");
+	}
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+var players = [];
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+app.post('/login', function login(req,res){
+	if(players.find(p => p.name === req.query.nickname)){
+		res.status(401);
+		res.send("That nickname has already taken, please select new one!");
+	}
+	else {
+		console.log("Add new player: " + req.query.nickname);
+		//create a new player
+		var player = {
+			'name': req.query.nickname,
+			'playing': false,
+			'score': 0
+		};
+		players.push(player);
+
+		res.status(200);
+		res.send(req.query.nickname);
+	}
 });
 
-module.exports = app;
+app.get('/startGame', function startGame(req, res) {
+
+	res.send(JSON.stringify(players));
+});
+
+app.get('/login', function(req, res){
+	req.on('close', function(){
+		console.log(players.find(p => p.name === req.query.nickname) + " closed!")
+		//delete players.find(p => p.name === req.query.nickname);
+	});
+});
+
+app.get('/login', function(req, res){
+	req.on('end', function(){
+		console.log(players.find(p => p.name === req.query.nickname) + " ended!")
+		//delete players.find(p => p.name === req.query.nickname);
+	});
+});
+
+
