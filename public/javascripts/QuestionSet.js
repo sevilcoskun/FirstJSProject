@@ -90,11 +90,11 @@ var game = JSON.parse(`{
             "options": [
                 {
                     "text": "3",
-                    "correct": false
+                    "correct": true
                 },
                 {
                     "text": "2",
-                    "correct": true
+                    "correct": false
                 },
                 {
                     "text": "1",

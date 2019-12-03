@@ -133,7 +133,7 @@ function printScore() {
     var range;
 
     var messages = ["Woooaw!!! Great Job!", "It is good!", "Meh it is okay, need more!", "You need to do it better!"];
-    var img = ["public/images/success.gif", "public/images/good.gif", "public/images/meh.gif", "public/images/lose.gif"];
+    var img = ["images/success.gif", "images/good.gif", "images/meh.gif", "images/lose.gif"];
 
     if (score < 3) {
         range = 3;

@@ -7,7 +7,7 @@ document.querySelector('#form-nickname').addEventListener('submit', showInput);
 
 async function showInput() {
 
-    if(event){
+    if (event) {
         event.preventDefault();
     }
 
@@ -15,7 +15,7 @@ async function showInput() {
     var request = await fetch('/login?nickname=' + nickname, {
         method: 'POST'
     });
-    if (request.status == 401) {
+    if (request.status == 403) {
         document.getElementById('form-nickname').innerHTML = await request.text();
     }
     else {
@@ -36,24 +36,32 @@ function singlePlayer() {
 }
 
 async function multiPlayer() {
-    //add the a new player in the list
+    var request = await fetch('/multiPlayer?nickname=' + nickname, {
+        method: 'POST'
+    });
+
     document.getElementById('login-div').style.display = "none";
     document.getElementById('players-div').style.display = "block";
-    var request = await fetch('/startGame?nickname=' + nickname);
+    document.getElementById('player').innerHTML = "Hello " + await request.text() + ", Please select someone to play!";
 
+    //add the a new player in the list
+    //printAllPlayers();
+    setInterval(printAllPlayers, 2000);
+}
+
+async function printAllPlayers() {
+    var request = await fetch('/multiPlayer?nickname=' + nickname);
     var json = await request.json();
-    document.getElementById('player').innerHTML = "Hello " + nickname + ", Please select someone to play!";
-
+    const myNode = document.getElementById('players_list');
+    myNode.innerHTML = '';
     json.forEach(element => {
         if (element.name != nickname) {
             var node = document.createElement("LI");
             var textnode = document.createTextNode(element.name);
             node.appendChild(textnode);
-            document.getElementById("players_list").appendChild(node);
+            myNode.appendChild(node);
         }
-
     });
-
 }
 
 // init();
