@@ -23,7 +23,8 @@
     port: "22"
     authentication_mode: "PASS"
     commands:
-    - "docker ps -q --filter \"name=test_container\" | grep -q . && docker stop test_container"
+    - "docker ps -q --filter \"name=test_container\" | grep -q ."
+    - "docker rm -f test_container"
     - "docker pull skillbillsrl/firstjsproject"
     - "docker run -id -p 188.166.25.183:8080:80 --name test_container skillbillsrl/firstjsproject"
     run_as_script: true
