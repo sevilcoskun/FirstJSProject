@@ -25,7 +25,7 @@
     commands:
     - "docker rm -f test_container"
     - "docker pull skillbillsrl/firstjsproject"
-    - "docker run -id -p 188.166.25.183:8080:80 --name test_container skillbillsrl/firstjsproject"
+    - "docker run -id -p 188.166.25.183:8080:8080 --name test_container skillbillsrl/firstjsproject"
     run_as_script: true
     shell: "BASH"
     trigger_condition: "ALWAYS"
