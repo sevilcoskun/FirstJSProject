@@ -1,5 +1,5 @@
-FROM nginx:alpine
+FROM node:10
 
-COPY . /usr/share/nginx/html
+COPY . .
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nodemon", "app.js"]
