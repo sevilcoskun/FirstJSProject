@@ -22,28 +22,40 @@ app.post('/login', function login(req,res){
 		res.send("That nickname has already taken, please select new one!");
 	}
 	 else {
-		res.status(200);
-		res.send(req.query.nickname);
-	} 
-});
-
-app.post('/multiPlayer', function multiPlayer(req, res){
-	console.log("Add new multi-player: " + req.query.nickname);
+		console.log("Add new multi-player: " + req.query.nickname);
 		//create a new player
 		var player = {
 			'name': req.query.nickname,
-			'playing': false,
 			'score': 0
 		};
 		players.push(player);
 
 		res.status(200);
 		res.send(req.query.nickname);
-})
-
-app.get('/multiPlayer', function multiPlayer(req, res){
-	res.send(JSON.stringify(players));
+		console.log('S--> ' , req.query.nickname, ' /login');
+	} 
 });
+
+app.get('/game', function game(req, res){
+	let pos;
+	console.log("Players ", players , req.query.name);
+	pos = players.findIndex(item => item.name == req.query.name);
+	res.send(JSON.stringify(players[pos]));
+	console.log('S--> ' , players[pos], ' /game');
+});
+
+app.post('/result', function result(req,res){
+	let pos;
+	pos = players.findIndex(item => item.name == req.query.name);
+	players[pos].score = req.query.score;
+	res.send(JSON.stringify(players[pos]));
+	console.log('S--> ' , players[pos], ' /result');
+});
+
+app.get('/results', function results(req, res){
+	res.send(JSON.stringify(players));
+	console.log('S--> ' , players, ' /all results');
+})
 
 app.delete('/deletePlayer', function deletePlayer(req, res){
 	let p;

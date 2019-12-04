@@ -18,16 +18,8 @@ input[type=button]{
 	width: auto;
 }
 
-#play-type{
-	display: none;
-}
-
-#users_list{
-	display: none;
-}
-
 #game-div{
-	visibility: hidden;
+	display: none;
 	margin-left: 10px;
 	padding: 10px 20px 10px 20px;
 	background: rgba(112, 122, 139, 0.486);
@@ -36,6 +28,20 @@ input[type=button]{
 }
 
 #finish-game{
-	visibility: hidden;
+	display: none;
+	width: 800px;
+	background: rgba(112, 122, 139, 0.486);
+	overflow: hidden;
+}
+
+#finish-msg-div{
 	width: 400px;
+	float: left;
+}
+
+#players-div{
+	padding: 10px 20px 10px 20px;
+	width: 300px;
+	overflow: hidden;
+	background: lightgrey;
 }

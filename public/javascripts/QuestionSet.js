@@ -42,12 +42,12 @@ var game = JSON.parse(`{
                     "correct": false
                 },
                 {
-                    "text": "50",
-                    "correct": true
-                },
-                {
                     "text": "25",
                     "correct": false
+                },
+                {
+                    "text": "50",
+                    "correct": true
                 }
             ]
         },
@@ -55,12 +55,12 @@ var game = JSON.parse(`{
             "text": "4-How many oscars did the Titanic movie got?",
             "options": [
                 {
-                    "text": "11",
-                    "correct": true
-                },
-                {
                     "text": "10",
                     "correct": false
+                },
+                {
+                    "text": "11",
+                    "correct": true
                 },
                 {
                     "text": "17",
